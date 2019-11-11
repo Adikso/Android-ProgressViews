@@ -218,16 +218,16 @@ class ProgressWheel : View {
         invalidate()
     }
 
-    fun setPercentage(per: Int) {
-        startAnimation(per)
+    fun setPercentage(per: Int, animationDuration: Long = 1000) {
+        startAnimation(per, animationDuration)
     }
 
-    private fun startAnimation(per: Int) {
+    private fun startAnimation(per: Int, animationDuration: Long) {
         val diff = per - mPercentage
         ValueAnimator()
         val valueAnimator = ValueAnimator
                 .ofInt(mPercentage, mPercentage + diff)
-                .setDuration(1000)
+                .setDuration(animationDuration)
         valueAnimator.addUpdateListener { animation ->
             mPercentage = animation.animatedValue as Int
             invalidate()
