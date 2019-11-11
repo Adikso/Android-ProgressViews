@@ -218,7 +218,11 @@ class ProgressWheel : View {
         invalidate()
     }
 
-    fun setPercentage(per: Int, animationDuration: Long = 1000) {
+    fun setPercentage(per: Int) {
+        startAnimation(per, 1000)
+    }
+
+    fun setPercentage(per: Int, animationDuration: Long) {
         startAnimation(per, animationDuration)
     }
 
